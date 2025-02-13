@@ -8,7 +8,11 @@ async function bootstrap() {
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     credentials: true,
   });
-  await app.listen(3000);
+
+  // Use the PORT environment variable or fallback to 8000
+  const port = process.env.PORT || 8000;
+  await app.listen(port);
+  console.log(`Application is running on port ${port}`);
 }
 
 void bootstrap().catch((error) => {
